@@ -19,7 +19,7 @@ const app = new Elysia()
 
     await Bun.write(
       `dumps/${Date.now()}_${interaction_type}.json`,
-      JSON.stringify(json, null, 2),
+      JSON.stringify({ body: json, headers: ctx.headers }, null, 2),
     );
 
     switch (interaction_type) {
