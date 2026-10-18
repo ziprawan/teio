@@ -1,6 +1,7 @@
 import { verifyAsync } from "@noble/ed25519";
 import { Elysia } from "elysia";
 import { pingHandler } from "./services/ping";
+import { setProfileIdHandler } from "./services/setprofileid";
 import { config } from "./config";
 
 const app = new Elysia()
@@ -48,6 +49,19 @@ const app = new Elysia()
       case 1:
         return await pingHandler();
 
+
+      case 2: {
+        const commandName = json.data?.name;
+        switch (commandName) {
+          case "setprofileid":
+            return await setProfileIdHandler(json);
+
+          default:
+            return {
+              description: `Unhandled interaction command ${commandName}`,
+            };
+        }
+      }
       default:
         return {
           description: `Unhandled interaction type ${interaction_type}`,
