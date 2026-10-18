@@ -4,6 +4,7 @@ const port = parseInt(process.env.PORT ?? "2004");
 const publicKey = Buffer.from(process.env.DISCORD_PUBLIC_KEY ?? "", "hex");
 const umaMoeApiKey = process.env.UMA_MOE_API_KEY ?? "";
 const discordAppToken = process.env.DISCORD_APP_TOKEN ?? "";
+const postgresUrl = process.env.POSTGRES_URL ?? "";
 
 if (isNaN(port)) {
   throw new Error("PORT cannot be another than a number");
@@ -17,6 +18,12 @@ if (umaMoeApiKey.length == 0) {
   throw new Error("uma.moe API key is not defined");
 }
 
-const config = { port, publicKey, umaMoeApiKey, discordAppToken };
+const config = {
+  port,
+  publicKey,
+  umaMoeApiKey,
+  discordAppToken,
+  postgresUrl,
+};
 
 export { config };

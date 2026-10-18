@@ -2,6 +2,7 @@ import { verifyAsync } from "@noble/ed25519";
 import { Elysia } from "elysia";
 import { pingHandler } from "./services/ping";
 import { setProfileIdHandler } from "./services/setprofileid";
+import { setClubIdHandler } from "./services/setclubid";
 import { config } from "./config";
 
 const app = new Elysia()
@@ -55,6 +56,9 @@ const app = new Elysia()
         switch (commandName) {
           case "setprofileid":
             return await setProfileIdHandler(json);
+
+          case "setclubid":
+            return await setClubIdHandler(json);
 
           default:
             return {

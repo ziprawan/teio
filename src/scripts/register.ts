@@ -17,6 +17,29 @@ const commands = [
         type: 4,
         required: true,
       },
+      {
+        name: "user",
+        description: "Target user in the server (Administrator only)",
+        type: 6,
+        required: false,
+      },
+    ],
+  },
+  {
+    name: "setclubid",
+    description: "Set your Umamusume club (circle) ID",
+    type: 1,
+    default_member_permissions: "8",
+    dm_permission: false,
+    contexts: [0],
+    integration_types: [0],
+    options: [
+      {
+        name: "id",
+        description: "Your club (circle) ID",
+        type: 4,
+        required: true,
+      },
     ],
   },
 ];

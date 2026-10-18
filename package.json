@@ -4,15 +4,23 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts",
-    "register": "bun run src/scripts/register.ts"
+    "register": "bun run src/scripts/register.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@noble/ed25519": "^3.2.0",
     "dotenv": "^17.4.2",
-    "elysia": "latest"
+    "drizzle-orm": "^0.45.4",
+    "elysia": "latest",
+    "pg": "^8.23.1"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/pg": "^8.23.1",
+    "bun-types": "latest",
+    "drizzle-kit": "^0.31.11"
   },
   "module": "src/index.js"
 }
